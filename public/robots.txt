@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://paysandu-calles.vercel.app/sitemap.xml
