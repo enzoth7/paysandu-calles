@@ -1,0 +1,86 @@
+[
+  {
+    "calle": "Avenida Doctor Roldan",
+    "desde": "Purificación",
+    "hasta": "Instrucciones del Año XIII",
+    "estado": "rojo",
+    "coords": [
+      [
+        -32.296759887100514,
+        -58.07944973967407
+      ],
+      [
+        -32.29845123978779,
+        -58.07978763202017
+      ]
+    ]
+  },
+  {
+    "calle": "Doctor Roldán vieja",
+    "desde": "Yapeyú",
+    "hasta": "República de Chile",
+    "estado": "rojo",
+    "coords": [
+      [
+        -32.291649361645526,
+        -58.078511058695035
+      ],
+      [
+        -32.28763601416053,
+        -58.077760186814785
+      ]
+    ]
+  },
+  {
+    "calle": "Cortada Doctor Roldán vieja",
+    "desde": "Yapeyú",
+    "hasta": "Cortada",
+    "estado": "rojo",
+    "coords": [
+      [
+        -32.29168563968267,
+        -58.078334334567536
+      ],
+      [
+        -32.29026171582817,
+        -58.078082256150616
+      ],
+      [
+        -32.29008032264849,
+        -58.07822170378553
+      ]
+    ]
+  },
+  {
+    "calle": "Avenida Doctor Roldan",
+    "desde": "Antonio Estefanell",
+    "hasta": "Batalla de las Piedras",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.291640292133984,
+        -58.07876299780024
+      ],
+      [
+        -32.293349879028206,
+        -58.07910089014636
+      ]
+    ]
+  },
+  {
+    "calle": "Doctor Roldán vieja",
+    "desde": "Yapeyú",
+    "hasta": "Batalla de las piedras",
+    "estado": "amarillo",
+    "coords": [
+      [
+        -32.291676570174744,
+        -58.07852695397982
+      ],
+      [
+        -32.29338615638488,
+        -58.078805849249626
+      ]
+    ]
+  }
+]
