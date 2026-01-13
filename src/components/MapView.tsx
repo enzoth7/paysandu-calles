@@ -47,6 +47,49 @@ function SegmentInfo({ segment }: SegmentInfoProps) {
   )
 }
 
+type SegmentPopupProps = {
+  segment: CalleSegment
+  showMedia: boolean
+}
+
+function SegmentPopup({ segment, showMedia }: SegmentPopupProps) {
+  const isPhotoEligible = showMedia && segment.estado !== 'verde'
+  const [imageError, setImageError] = useState(false)
+
+  useEffect(() => {
+    setImageError(false)
+  }, [segment.fotoUrl])
+
+  return (
+    <div className="street-popup-content">
+      <div className="street-popup-title">{segment.calle}</div>
+      <div className="street-popup-id">ID: {segment.id}</div>
+      <div className="street-popup-row">Estado: {segment.estado}</div>
+      <div className="street-popup-subtitle">
+        {segment.desde} - {segment.hasta}
+      </div>
+      {segment.nota ? <div className="street-popup-note">{segment.nota}</div> : null}
+      {isPhotoEligible ? (
+        segment.fotoUrl ? (
+          imageError ? (
+            <div className="street-popup-error">No se pudo cargar la foto</div>
+          ) : (
+            <img
+              className="street-popup-image"
+              src={segment.fotoUrl}
+              alt={`Foto del tramo ${segment.calle}`}
+              loading="lazy"
+              onError={() => setImageError(true)}
+            />
+          )
+        ) : (
+          <div className="street-popup-empty">Sin foto aun</div>
+        )
+      ) : null}
+    </div>
+  )
+}
+
 type ZoomWatcherProps = {
   onZoomChange: (zoom: number) => void
 }
@@ -70,6 +113,7 @@ type MapViewProps = {
   onSelectSegment?: (index: number) => void
   onCreateSegment?: (coords: [number, number][]) => void
   selectedIndex?: number | null
+  showMediaPopup?: boolean
 }
 
 type DrawControlProps = {
@@ -143,6 +187,7 @@ export function MapView({
   onSelectSegment,
   onCreateSegment,
   selectedIndex = null,
+  showMediaPopup = false,
 }: MapViewProps) {
   const [lineWeight, setLineWeight] = useState(() => getLineWeight(ZOOM_MIN))
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
@@ -198,7 +243,7 @@ export function MapView({
 
         return (
           <Polyline
-            key={`${segment.calle}-${index}`}
+            key={segment.id}
             positions={segment.coords}
             pathOptions={{
               color: STATUS_COLORS[segment.estado],
@@ -213,7 +258,7 @@ export function MapView({
               <SegmentInfo segment={segment} />
             </Tooltip>
             <Popup className="street-popup">
-              <SegmentInfo segment={segment} />
+              <SegmentPopup segment={segment} showMedia={showMediaPopup} />
             </Popup>
           </Polyline>
         )

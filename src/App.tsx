@@ -7,11 +7,46 @@ import type { CalleSegment } from './types'
 
 type AppMode = 'public' | 'admin'
 
+type RawSegment = Omit<CalleSegment, 'id'> & { id?: string }
+
 const getAppMode = (): AppMode => {
   const url = new URL(window.location.href)
   const isAdminParam = url.searchParams.get('admin') === 'true'
   const isAdminPath = url.pathname === '/admin' || url.pathname.startsWith('/admin/')
   return isAdminParam || isAdminPath ? 'admin' : 'public'
+}
+
+const assignIds = (data: RawSegment[]): CalleSegment[] => {
+  const usedIds = new Set<string>()
+
+  return data.map((segment, index) => {
+    const rawId = typeof segment.id === 'string' ? segment.id.trim() : ''
+    let id = rawId.length > 0 ? rawId : `PS-AUTO-${index + 1}`
+
+    if (usedIds.has(id)) {
+      let suffix = 2
+      while (usedIds.has(`${id}-${suffix}`)) {
+        suffix += 1
+      }
+      id = `${id}-${suffix}`
+    }
+
+    usedIds.add(id)
+    return { ...segment, id }
+  })
+}
+
+const getNextAutoId = (segments: CalleSegment[]) => {
+  const used = new Set(segments.map((segment) => segment.id))
+  let counter = segments.length + 1
+  let candidate = `PS-AUTO-${counter}`
+
+  while (used.has(candidate)) {
+    counter += 1
+    candidate = `PS-AUTO-${counter}`
+  }
+
+  return candidate
 }
 
 export function App() {
@@ -26,9 +61,9 @@ export function App() {
     let active = true
     fetch('/data/calles.json')
       .then((response) => response.json())
-      .then((data: CalleSegment[]) => {
+      .then((data: RawSegment[]) => {
         if (active) {
-          setSegments(data)
+          setSegments(assignIds(data))
         }
       })
       .catch((error) => {
@@ -94,15 +129,15 @@ export function App() {
       return
     }
 
-    const newSegment: CalleSegment = {
-      calle: 'Sin nombre',
-      desde: '',
-      hasta: '',
-      estado: 'amarillo',
-      coords,
-    }
-
     setSegments((prev) => {
+      const newSegment: CalleSegment = {
+        id: getNextAutoId(prev),
+        calle: 'Sin nombre',
+        desde: '',
+        hasta: '',
+        estado: 'amarillo',
+        coords,
+      }
       const next = [...prev, newSegment]
       const newIndex = next.length - 1
       setSelectedIndex(newIndex)
@@ -119,6 +154,7 @@ export function App() {
         onSelectSegment={mode === 'admin' ? handleSelectSegment : undefined}
         onCreateSegment={mode === 'admin' ? handleCreateSegment : undefined}
         selectedIndex={mode === 'admin' ? selectedIndex : null}
+        showMediaPopup={mode === 'public'}
       />
       <StatsBar segments={segments} />
       <Legend />

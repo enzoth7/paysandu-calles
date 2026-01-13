@@ -13,7 +13,10 @@
         -32.29845123978779,
         -58.07978763202017
       ]
-    ]
+    ],
+    "fotoUrl": "/fotos/PS-0001.jpg",
+    "nota": "Baches y perdida de material.",
+    "id": "PS-0001"
   },
   {
     "calle": "Doctor Roldán vieja",
@@ -29,7 +32,8 @@
         -32.28763601416053,
         -58.077760186814785
       ]
-    ]
+    ],
+    "id": "PS-0002"
   },
   {
     "calle": "Cortada Doctor Roldán vieja",
@@ -49,7 +53,9 @@
         -32.29008032264849,
         -58.07822170378553
       ]
-    ]
+    ],
+    "id": "PS-0003",
+    "fotoUrl": "/fotos/PS-0003.jpeg"
   },
   {
     "calle": "Avenida Doctor Roldan",
@@ -65,7 +71,8 @@
         -32.293349879028206,
         -58.07910089014636
       ]
-    ]
+    ],
+    "id": "PS-0004"
   },
   {
     "calle": "Doctor Roldán vieja",
@@ -81,6 +88,9 @@
         -32.29338615638488,
         -58.078805849249626
       ]
-    ]
+    ],
+    "fotoUrl": "/fotos/PS-0005.jpg",
+    "nota": "Desgaste visible, requiere mantenimiento.",
+    "id": "PS-0005"
   }
 ]

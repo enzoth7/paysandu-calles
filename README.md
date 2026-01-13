@@ -23,10 +23,13 @@ El archivo local se encuentra en `public/data/calles.json` y tiene esta estructu
 ```json
 [
   {
+    "id": "PS-0001",
     "calle": "Ejemplo",
     "desde": "Calle A",
     "hasta": "Calle B",
     "estado": "rojo",
+    "fotoUrl": "/fotos/PS-0001.jpg",
+    "nota": "Breve descripcion del estado.",
     "coords": [
       [-32.321, -58.079],
       [-32.322, -58.078]
@@ -36,6 +39,10 @@ El archivo local se encuentra en `public/data/calles.json` y tiene esta estructu
 ```
 
 Los estados posibles son: `verde`, `amarillo`, `rojo`.
+Los campos `fotoUrl` y `nota` son opcionales y se usan para justificar tramos en rojo o amarillo.
+Cada tramo debe tener un `id` unico (ej: `PS-0001`) y la convencion recomendada de fotos es
+`/fotos/<id>.jpg`.
+En modo publico, los tramos en rojo o amarillo muestran la foto y nota dentro del popup.
 
 ## Modos de la aplicacion
 

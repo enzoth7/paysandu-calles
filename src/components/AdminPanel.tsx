@@ -29,12 +29,20 @@ export function AdminPanel({
   }, [focusToken])
 
   const panelClassName = isNewSegment ? 'admin-panel admin-panel--highlight' : 'admin-panel'
+  const fotoUrlValue = segment?.fotoUrl ?? ''
+  const notaValue = segment?.nota ?? ''
+  const fotoPlaceholder = segment ? `/fotos/${segment.id}.jpg` : '/fotos/PS-0001.jpg'
+  const normalizeOptional = (value: string) => {
+    const trimmed = value.trim()
+    return trimmed.length > 0 ? trimmed : undefined
+  }
 
   return (
     <aside className={panelClassName}>
       <div className="admin-panel-title">Panel de edicion</div>
       {segment ? (
         <div className="admin-panel-body">
+          <div className="admin-panel-id">ID: {segment.id}</div>
           <label className="admin-panel-row admin-panel-field">
             <span className="admin-panel-label">Calle</span>
             <input
@@ -58,6 +66,27 @@ export function AdminPanel({
               type="text"
               value={segment.hasta}
               onChange={(event) => onChangeSegment({ hasta: event.target.value })}
+            />
+          </label>
+          <label className="admin-panel-row admin-panel-field">
+            <span className="admin-panel-label">Foto URL</span>
+            <input
+              type="text"
+              placeholder={fotoPlaceholder}
+              value={fotoUrlValue}
+              onChange={(event) =>
+                onChangeSegment({ fotoUrl: normalizeOptional(event.target.value) })
+              }
+            />
+          </label>
+          <label className="admin-panel-row admin-panel-field">
+            <span className="admin-panel-label">Nota</span>
+            <textarea
+              rows={3}
+              value={notaValue}
+              onChange={(event) =>
+                onChangeSegment({ nota: normalizeOptional(event.target.value) })
+              }
             />
           </label>
           <label className="admin-panel-row admin-panel-field">

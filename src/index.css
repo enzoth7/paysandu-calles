@@ -178,6 +178,12 @@ body {
   font-size: 13px;
 }
 
+.admin-panel-id {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1f2933;
+}
+
 .admin-panel-row {
   display: grid;
   gap: 4px;
@@ -199,7 +205,8 @@ body {
   font-size: 13px;
 }
 
-.admin-panel-field input {
+.admin-panel-field input,
+.admin-panel-field textarea {
   margin-top: 4px;
   padding: 6px 8px;
   border-radius: 8px;
@@ -208,7 +215,12 @@ body {
   font-size: 13px;
 }
 
+.admin-panel-field textarea {
+  resize: vertical;
+}
+
 .admin-panel-field input:focus,
+.admin-panel-field textarea:focus,
 .admin-panel-field select:focus {
   outline: 2px solid rgba(59, 130, 246, 0.35);
   outline-offset: 1px;
@@ -289,6 +301,63 @@ body {
 .street-popup .leaflet-popup-content {
   margin: 8px 12px;
   font-size: 13px;
+  max-width: 260px;
+}
+
+.street-popup-content {
+  display: grid;
+  gap: 6px;
+}
+
+.street-popup-title {
+  font-weight: 600;
+}
+
+.street-popup-id {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.street-popup-subtitle {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.street-popup-row {
+  font-size: 12px;
+}
+
+.street-popup-image {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  margin-top: 8px;
+}
+
+.street-popup-empty {
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #64748b;
+}
+
+.street-popup-error {
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.street-popup-note {
+  font-size: 12px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.04);
+  color: #334155;
 }
 
 @media (max-width: 600px) {
