@@ -1,6 +1,6 @@
 [
   {
-    "calle": "Avenida Doctor Roldan",
+    "calle": "Avenida Doctor Roldán",
     "desde": "Purificación",
     "hasta": "Instrucciones del Año XIII",
     "estado": "rojo",
@@ -15,7 +15,7 @@
       ]
     ],
     "fotoUrl": "/fotos/PS-0001.jpg",
-    "nota": "Baches y perdida de material.",
+    "nota": "Parchesenmalestado",
     "id": "PS-0001"
   },
   {
@@ -92,5 +92,260 @@
     "fotoUrl": "/fotos/PS-0005.jpg",
     "nota": "Desgaste visible, requiere mantenimiento.",
     "id": "PS-0005"
+  },
+  {
+    "id": "PS-AUTO-6",
+    "calle": "Antonio Estefanell",
+    "desde": "Avenida Doctor Roldán",
+    "hasta": "Treinta y Tres Orientales",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.291649361645526,
+        -58.07877403144617
+      ],
+      [
+        -32.29140901928284,
+        -58.08051712688246
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-7",
+    "calle": "Antonio Estefanell",
+    "desde": "Treinta y Tres Orientales",
+    "hasta": "Setembrino Pereda",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.29140901928284,
+        -58.08052817309787
+      ],
+      [
+        -32.291159606723355,
+        -58.08253943706282
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-8",
+    "calle": "Antonio Estefanell",
+    "desde": "Setembrino Pereda",
+    "hasta": "Luis Batlle Berres",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.291155071943194,
+        -58.08252334695109
+      ],
+      [
+        -32.2908693803359,
+        -58.084486340580874
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-9",
+    "calle": "Antonio Estefanell",
+    "desde": "Luis Batlle Berres",
+    "hasta": "Libertad",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.2908693803359,
+        -58.084454721794174
+      ],
+      [
+        -32.29058368782834,
+        -58.08648743924142
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-10",
+    "calle": "Antonio Estefanell",
+    "desde": "Libertad",
+    "hasta": "Baldomero Vidal",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.29057915301937,
+        -58.086471349129695
+      ],
+      [
+        -32.290347877461386,
+        -58.088274049167126
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-11",
+    "calle": "Doctor Roldán vieja",
+    "desde": "Batalla de las Piedras",
+    "hasta": "Alfredo Vazquez Varela",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.29338162171607,
+        -58.07880056758066
+      ],
+      [
+        -32.295095710356364,
+        -58.07911164307391
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-12",
+    "calle": "Doctor Roldán vieja",
+    "desde": "Alfredo Vazquez Varela",
+    "hasta": "Purificación",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.295077572021896,
+        -58.079106380259184
+      ],
+      [
+        -32.29676895609988,
+        -58.079454999346446
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-13",
+    "calle": "Yapeyú",
+    "desde": "Doctor Roldán vieja",
+    "hasta": "Zorilla de San Martín",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.29166840443183,
+        -58.07852548268
+      ],
+      [
+        -32.29195862826151,
+        -58.07654103556793
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-14",
+    "calle": "Zorrilla de San Martín",
+    "desde": "Yapeyú",
+    "hasta": "Batalla de las Piedras",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.29194865501779,
+        -58.07655301050063
+      ],
+      [
+        -32.293667305406835,
+        -58.07690162958789
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-15",
+    "calle": "Zorrilla de San Martín",
+    "desde": "Batalla de las Piedras",
+    "hasta": "Alfredo Vazquez Varela",
+    "estado": "amarillo",
+    "coords": [
+      [
+        -32.293667305406835,
+        -58.07690170290986
+      ],
+      [
+        -32.29535871579819,
+        -58.07720741503251
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-16",
+    "calle": "Zorrilla de San Martín",
+    "desde": "Alfredo Vazquez Varela",
+    "hasta": "Purificación",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.29534964665771,
+        -58.07719116780231
+      ],
+      [
+        -32.29703195668695,
+        -58.07751833340728
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-17",
+    "calle": "Purificación",
+    "desde": "Doctor Roldán vieja",
+    "hasta": "Zorrilla de San Martín",
+    "estado": "rojo",
+    "coords": [
+      [
+        -32.29675081810023,
+        -58.079444135388464
+      ],
+      [
+        -32.29703195668695,
+        -58.077513321982124
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-18",
+    "calle": "Zorrilla de San Martín",
+    "desde": "Purificación",
+    "hasta": "Instrucciones del Año XIII",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.297036491173145,
+        -58.077502631901964
+      ],
+      [
+        -32.29872783869907,
+        -58.077813630930876
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-19",
+    "calle": "Alfredo Vazquez Varela",
+    "desde": "Doctor Roldán vieja",
+    "hasta": "Zorrilla de San Martín",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.295082106605854,
+        -58.07908474347198
+      ],
+      [
+        -32.29535418122807,
+        -58.07719683703022
+      ]
+    ]
+  },
+  {
+    "id": "PS-AUTO-20",
+    "calle": "Batalla de las Piedras",
+    "desde": "Doctor Roldán vieja",
+    "hasta": "Zorrilla de San Martín",
+    "estado": "verde",
+    "coords": [
+      [
+        -32.29338162171607,
+        -58.078796075694
+      ],
+      [
+        -32.29364463213093,
+        -58.07690816925224
+      ]
+    ]
   }
 ]
