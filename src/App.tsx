@@ -4,10 +4,15 @@ import { Legend } from './components/Legend'
 import { MapView } from './components/MapView'
 import { StatsBar } from './components/StatsBar'
 import type { CalleSegment } from './types'
+import { calculatePolylineLengthMeters } from './utils/geo'
 
 type AppMode = 'public' | 'admin'
 
-type RawSegment = Omit<CalleSegment, 'id'> & { id?: string }
+type RawSegment = Omit<CalleSegment, 'id' | 'updatedAt' | 'lengthMeters'> & {
+  id?: string
+  updatedAt?: string
+  lengthMeters?: number
+}
 
 const getAppMode = (): AppMode => {
   const url = new URL(window.location.href)
@@ -22,6 +27,13 @@ const assignIds = (data: RawSegment[]): CalleSegment[] => {
   return data.map((segment, index) => {
     const rawId = typeof segment.id === 'string' ? segment.id.trim() : ''
     let id = rawId.length > 0 ? rawId : `PS-AUTO-${index + 1}`
+    const updatedAtValue =
+      typeof segment.updatedAt === 'string' && segment.updatedAt.trim().length > 0
+        ? segment.updatedAt
+        : new Date().toISOString()
+    const lengthMetersValue = Number.isFinite(segment.lengthMeters)
+      ? segment.lengthMeters
+      : calculatePolylineLengthMeters(segment.coords)
 
     if (usedIds.has(id)) {
       let suffix = 2
@@ -32,7 +44,12 @@ const assignIds = (data: RawSegment[]): CalleSegment[] => {
     }
 
     usedIds.add(id)
-    return { ...segment, id }
+    return {
+      ...segment,
+      id,
+      updatedAt: updatedAtValue,
+      lengthMeters: lengthMetersValue,
+    }
   })
 }
 
@@ -89,7 +106,16 @@ export function App() {
 
     setSegments((prev) =>
       prev.map((segment, index) =>
-        index === selectedIndex ? { ...segment, ...changes } : segment
+        index === selectedIndex
+          ? {
+              ...segment,
+              ...changes,
+              updatedAt:
+                typeof changes.estado === 'string' && changes.estado !== segment.estado
+                  ? new Date().toISOString()
+                  : segment.updatedAt,
+            }
+          : segment
       )
     )
     if (newSegmentIndex === selectedIndex) {
@@ -137,6 +163,8 @@ export function App() {
         hasta: '',
         estado: 'amarillo',
         coords,
+        updatedAt: new Date().toISOString(),
+        lengthMeters: calculatePolylineLengthMeters(coords),
       }
       const next = [...prev, newSegment]
       const newIndex = next.length - 1

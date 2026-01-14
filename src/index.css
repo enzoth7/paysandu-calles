@@ -116,6 +116,11 @@ body {
   white-space: nowrap;
 }
 
+.stats-item-secondary {
+  font-size: 11px;
+  color: #64748b;
+}
+
 .stats-item--red {
   color: var(--color-red);
 }

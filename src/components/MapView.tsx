@@ -52,6 +52,19 @@ type SegmentPopupProps = {
   showMedia: boolean
 }
 
+const formatDate = (value: string) => {
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) {
+    return value
+  }
+  return date.toLocaleDateString('es-ES')
+}
+
+const formatLength = (value?: number) => {
+  const length = Number.isFinite(value) ? Math.round(value as number) : 0
+  return `${length} m`
+}
+
 function SegmentPopup({ segment, showMedia }: SegmentPopupProps) {
   const isPhotoEligible = showMedia && segment.estado !== 'verde'
   const [imageError, setImageError] = useState(false)
@@ -65,6 +78,10 @@ function SegmentPopup({ segment, showMedia }: SegmentPopupProps) {
       <div className="street-popup-title">{segment.calle}</div>
       <div className="street-popup-id">ID: {segment.id}</div>
       <div className="street-popup-row">Estado: {segment.estado}</div>
+      <div className="street-popup-row">Longitud: {formatLength(segment.lengthMeters)}</div>
+      <div className="street-popup-row">
+        Actualizado: {formatDate(segment.updatedAt)}
+      </div>
       <div className="street-popup-subtitle">
         {segment.desde} - {segment.hasta}
       </div>
