@@ -31,9 +31,11 @@ const assignIds = (data: RawSegment[]): CalleSegment[] => {
       typeof segment.updatedAt === 'string' && segment.updatedAt.trim().length > 0
         ? segment.updatedAt
         : new Date().toISOString()
-    const lengthMetersValue = Number.isFinite(segment.lengthMeters)
-      ? segment.lengthMeters
-      : calculatePolylineLengthMeters(segment.coords)
+const lengthMetersValue =
+  typeof segment.lengthMeters === 'number'
+    ? segment.lengthMeters
+    : calculatePolylineLengthMeters(segment.coords)
+
 
     if (usedIds.has(id)) {
       let suffix = 2

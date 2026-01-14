@@ -5,10 +5,27 @@ export type CalleSegment = {
   calle: string
   desde: string
   hasta: string
-  estado: Estado
+  estado: 'verde' | 'amarillo' | 'rojo'
   coords: [number, number][]
+  updatedAt: string
+  lengthMeters: number
+
+  // media
   fotoUrl?: string
   nota?: string
 }
 
+
+
 export const ESTADOS: Estado[] = ['verde', 'amarillo', 'rojo']
+
+export type RawSegment = {
+  id?: string
+  calle: string
+  desde: string
+  hasta: string
+  estado: 'verde' | 'amarillo' | 'rojo'
+  coords: [number, number][]
+  updatedAt?: string
+  lengthMeters?: number
+}
